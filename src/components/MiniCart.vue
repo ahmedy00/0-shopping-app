@@ -2,21 +2,20 @@
   <transition enter-active-class="animate__animated animate__slideInDown">
     <div class="container">
       <div class="row">
-        <div class="col">{{}}</div>
+        <div class="col-12" v-for="(product,index) in products" :key="`product${index}`">{{product.price}}</div>
       </div>
-      <button class="btn btn-danger">go to cart</button>
+      <button class="btn btn-danger">Go To Cart</button>
     </div>
   </transition>
 </template>
 
-<script>
-export default {
-  data(){
-    return{
+<script setup>
+import {useStore} from 'vuex'
+import {computed} from "vue";
 
-    }
-  }
-}
+const store = useStore()
+
+const products = computed(() => store.state.miniCartItems)
 </script>
 
 <style scoped>
