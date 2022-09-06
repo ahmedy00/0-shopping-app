@@ -1,10 +1,15 @@
 export const productMixin = {
     props: ['searchText'],
     computed: {
-        filtered() {
-            return this.$store.state.products.filter((element) => {
-                return element.match(this.searchText)
+        filteredList() {
+            return this.products.filter(product => {
+                return product.Id.toLowerCase().includes(this.$store.state.searchText.toLowerCase())
             })
-        }
+        },
+        // filteredRating(){
+        //     return this.products.filter(product => {
+        //         return product.Ratings.
+        //     })
+        // }
     }
 }

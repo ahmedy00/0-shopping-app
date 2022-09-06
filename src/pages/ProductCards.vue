@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row d-flex" style="flex-direction: row">
-      <div class="col-lg-4 col-md-6 col-12" v-for="(product, index) in products">
+    <div class="row d-flex" style="flex-direction: row; margin-top: 100px">
+      <div class="col-lg-4 col-md-6 col-12" v-for="product in filteredList">
         <product-card
             :id="product.Id"
             :maker="product.Maker"
@@ -16,7 +16,8 @@
 </template>
 
 <script>
-import ProductCard from "./ProductCard.vue";
+import ProductCard from "../components/ProductCard.vue";
+import {productMixin} from "../mixins/productMixin.js";
 
 export default {
   components: {
@@ -199,7 +200,8 @@ export default {
         }
       ],
     }
-  }
+  },
+  mixins: [productMixin]
 }
 </script>
 
