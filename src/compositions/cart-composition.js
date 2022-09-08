@@ -4,11 +4,19 @@ export const useCarts = () => {
     const store = useStore()
 
     const addCart = async (product) => {
-        store.state.showMiniCart = true
-        await store.dispatch("addItem", {id: product.Id, price: product.Price})
+        await store.dispatch("addItem", {
+            img: product.img,
+            id: product.Id,
+            price: product.Price,
+            counter: product.Counter
+        })
+    }
+    const deleteCart = async (product) => {
+        await store.dispatch("deleteItem", {})
     }
 
     return {
-        addCart
+        addCart,
+        deleteCart
     }
 }

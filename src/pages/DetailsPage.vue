@@ -1,7 +1,7 @@
 <template>
-<div class="container">
+<div class="container" style="margin-top: 100px;">
   <div class="row">
-    <div class="col-12 d-flex align-items-center" style="flex-direction: column">
+    <div class="col-6 d-flex align-items-center" style="flex-direction: column; border: 1px solid black; margin: auto; margin-top: 50px; height: 80vh;">
       <div class="id">Id</div>
       <div class="image">img</div>
       <div class="maker">Maker</div>
