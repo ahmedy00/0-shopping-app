@@ -6,5 +6,8 @@
 
 <script setup>
 import MainHeader from "./components/Main-Header.vue";
+import {useStore} from "vuex";
+
+const store = useStore()
 
 </script>

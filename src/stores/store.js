@@ -11,6 +11,7 @@ const store = createStore({
         addItem: (state, payload) => {
             for (let j = 0; j < state.miniCartItems.length; j++) {
                 if (payload.id === state.miniCartItems[j].id) {
+                    console.log('payload id: ' + payload.id)
                     return alert('You added this product already')
                 }
             }
@@ -26,7 +27,7 @@ const store = createStore({
         //   else {state.miniCartItems.push({...product, quantity: 1})}
         // },
         deleteItem: (state, payload) => {
-            const i = state.miniCartItems.map(item => item.id).indexOf(payload.id);
+            const i = state.miniCartItems.indexOf(payload.id);
             state.miniCartItems.splice(i,1)
             console.log("mutation", payload)
         },
@@ -53,14 +54,7 @@ const store = createStore({
             injectee.commit("deleteItem", payload)
         }
     },
-    getters: {
-        productQuantity: state => product => {
-            const item = state.miniCartItems.find(i => i.id === product.id)
-
-            if(item) return item.quantity
-            else return null
-        }
-    }
+    getters: {}
 });
 
 export default store;

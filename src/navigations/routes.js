@@ -3,7 +3,6 @@ import ProductCards from "../pages/ProductCards.vue";
 import Cart from "../pages/Cart.vue";
 import DetailsPage from "../pages/DetailsPage.vue";
 
-
 const routes = [
     {
         name: "ProductsPage",
@@ -19,7 +18,7 @@ const routes = [
         name: "DetailsPage",
         path: "/details",
         component: DetailsPage
-    }
+    },
 ];
 
 const router = createRouter({

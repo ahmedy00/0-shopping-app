@@ -1,5 +1,4 @@
 <template>
-
     <div class="container">
       <div class="row d-flex" style="flex-direction: row; margin-top: 100px">
         <div class="col-lg-4 col-md-6 col-12" v-for="product in filteredList" :key="`product${product.Id}`">
@@ -13,7 +12,6 @@
               @onAddCard="carts.addCart(product)"
           >
           </ProductCard>
-          <div>{{ total }}</div>
         </div>
       </div>
     </div>

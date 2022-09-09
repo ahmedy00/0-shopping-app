@@ -43,14 +43,17 @@
               <div class="float-end">
                 <p class="mb-0 me-5 d-flex align-items-center">
                   <span class="small text-muted me-2">Order total:</span>
-                  <span class="lead fw-normal pl-2">${{ total }}</span>
+                  <span class="lead fw-normal pl-2">${{ total.toFixed(2) }}</span>
                 </p>
               </div>
             </div>
           </div>
-          <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-primary btn-lg">Go to payment</button>
-          </div>
+          <router-link to="/payment">
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-primary btn-lg" @click="">Go to payment</button>
+            </div>
+          </router-link>
+
         </div>
       </div>
     </div>
@@ -67,12 +70,11 @@ const store = useStore()
 const newProducts = computed(() => store.state.miniCartItems)
 
 const total = computed(() => {
-  let ttl = 0;
+  let total = 0;
   for(let i=0; i< newProducts.value.length; i++){
-    console.log('asdfaf')
-    ttl += newProducts.value[i].price * newProducts.value[i].counter
+    total += newProducts.value[i].price * newProducts.value[i].counter
   }
-  return ttl
+  return total
 })
 
 
